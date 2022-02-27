@@ -70,8 +70,6 @@ function numbers2letters(numbers)
         letters_array.push(return_letters(number));
     }
 
-
-
     if (letters_array.length > 0)
     {
 
