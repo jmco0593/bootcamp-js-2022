@@ -1,5 +1,7 @@
 function ThreeSum(nums)
 {
+    let cnt_aux = 0;
+    let validador = false;
     let res = [];
     for (let i in nums)
     {
@@ -11,42 +13,48 @@ function ThreeSum(nums)
                 {
                     if ((nums[i] + nums[j] + nums[k]) == 0)
                     {
-                        let cnt_i = 0;
-                        let cnt_j = 0;
-                        let cnt_k = 0;
                         let actual =[nums[i], nums[j], nums[k]]
 
                         if (res.length > 0)
                         {
-                            for (array of res)
+                            
+                            for (let array of res)
                             {
-                                for (element of array)
+                                cnt_aux = 0;
+                                
+                                for (let element of array)
                                 {
                                     if (actual[0] == element)
                                     {
-                                        cnt_i = 1;
+                                        cnt_aux++;
 
                                     }
-                                    if (actual[1] == element)
+                                    else if (actual[1] == element)
                                     {
-                                        cnt_j = 1;
+                                        cnt_aux++;
 
                                     }
-                                    if (actual[2] == element)
+                                    else if (actual[2] == element)
                                     {
-                                        cnt_k = 1;
+                                        cnt_aux++;
 
                                     }
                                 }
+                                if ((cnt_aux >= 3))
+                                {
+                                    validador = true;
+                                    break;
+                                }   
                             }
-                            if (!(cnt_i == 1 && cnt_j == 1 && cnt_k == 1))
+                            if (validador == false)
                             {
                                 res.unshift(actual);
                             }
+                            validador = false;
                         }
                         else
                         {
-                            res.push(actual);
+                            res.unshift(actual);
                         }
                     }
                 }
