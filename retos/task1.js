@@ -18,31 +18,31 @@ function return_letters(num)
     {
         val = "abc"
     }
-    if (num == 3)
+    else if (num == 3)
     {
         val = "def"
     }
-    if (num == 4)
+    else if (num == 4)
     {
         val = "ghi"
     }
-    if (num == 5)
+    else if (num == 5)
     {
         val = "jkl"
     }
-    if (num == 6)
+    else if (num == 6)
     {
         val = "mno"
     }
-    if (num == 7)
+    else if (num == 7)
     {
         val = "pqrs"
     }
-    if (num == 8)
+    else if (num == 8)
     {
         val = "tuv"
     }
-    if (num == 9)
+    else if (num == 9)
     {
         val = "wxyz"
     }
