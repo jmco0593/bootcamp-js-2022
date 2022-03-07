@@ -84,7 +84,16 @@ function onSubmit(event)
         <td>${cantidad}</td>
         <td>${precio}</td>
         <td>${total}</td>
-        <td><a href="#" onclick="onEdit(event)">Editar</a> | <a href="#" onclick="onDelete(event)">Eliminar</a></td>
+        <td>
+            <div class="btn-group">
+                <a title="Editar" href="#" onclick="onEdit(event)" class="btn btn-sm btn-outline-secondary">
+                    <i class="bi bi-pencil-square"></i>
+                </a> 
+                <a title="Eliminar" href="#" onclick="onDelete(event)" class="btn btn-sm btn-outline-danger">
+                    <i class="bi bi-trash"></i>
+                </a>
+            </div>
+        </td>
     `
     //Con esto guardamos el valor de campo de categoria. dataset permite guardar información adicional en el elemento HTML que NO será visible para el usuario
     tr.dataset.categoria = categoria;
@@ -110,8 +119,12 @@ function onSubmit(event)
 function onEdit(event)
 {
     event.preventDefault();
-    const anchor = event.target;
-    const tr = anchor.parentElement.parentElement;
+    //Con target es para poder ubicar al elemetno, pero no es el ideneo para entornos de producción. Esto porque solo funcionará si le damos al anchor como tal
+    // y de haber un elemento dentro (cono es el caso del i que alberga la imagen) no activa el evento. Por ello se utiliza mejor el current target.
+    //Current target hará referencia al elemento que se le puso el evento onclick="onDelete(event), en este caso al a y abarcará todo lo que contenga dicho elemento
+    //const anchor = event.target;
+    const anchor = event.currentTarget;
+    const tr = anchor.parentElement.parentElement.parentElement;
     //Démonos cuenta que en esta situación estamos obtenido los td que se encuentren dentro de tr. No es una búsqueda en todo el documento, sino que ahora
     // es una búsqueda dentro de td.
     const celdas = tr.getElementsByTagName("td");
@@ -141,10 +154,11 @@ function onDelete(event)
     /**
      * @type {HTMLAnchorElement}
      */
-    const anchor = event.target;
+    //const anchor = event.target;
+    const anchor = event.currentTarget;
     //parentElement sirve para poder acceder al elemento padre del elemento anchor. En este caso seria a los td que alberga al ancor. Ahora haciendo parentElement
     //nuevamente, podemos acceder al tr que alberga todos los td.
-    const tr = anchor.parentElement.parentElement;
+    const tr = anchor.parentElement.parentElement.parentElement;
     //Ayuda a eliminar el elemento hijo (en este caso hijo de tbody) referenciado.
     tbody.removeChild(tr);
 
