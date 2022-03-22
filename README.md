@@ -1,4 +1,4 @@
-BOOTCAMP Laserants-Telus 2022
+<h2 style="text-align:center;">BOOTCAMP Laserants-Telus 2022</h2>
 
 En este repositorio encontrá todas las anotaciones y trabajos relacionados al bootcamp organizado por la empresa Guatemalteca LaserAnts acerca de nodejs y react.
 
@@ -8,7 +8,7 @@ En la carpeta de retos encontrará los archivos de los retos (resolución de pro
 
 En la carpeta de proyecto encontrará el siguiente proyecto:
 
-One page site
+<h3>One page site</h3>
 
 El proyecto consistirá en la construcción y diseño de un sitio web one page. Este estará conformado por 4 secciones, las cuales son:
 Slider o imagen única principal
