@@ -3,7 +3,7 @@ function ZigZag(word, numRows)
     function convert2Array(str,row)
     {
         let array = [];
-        for (s of str)
+        for (let s of str)
         {
             array.push(s);
         }
