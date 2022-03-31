@@ -44,3 +44,12 @@ body {
     vertical-align: middle;
     text-indent:20px;
 }
+
+.card{
+    color:white;
+    position: relative;
+}
+
+.tasks_list{
+    
+}

@@ -11,16 +11,21 @@
     </head>
     <body>
         <main class="container">
-            <div class="text-center row align-items-center centered">
-                <h1 class="tittle">TO DO LIST</h1>
-                <form action="index.html" id="form_tasks_list">
-                    <div>
-                        <input type="text" id="todoTxtbox" name="todoTxtbox" placeholder="Add your task here!" class="form-input">
-                        <input type="button" class="btn btn-primary form-button" value="Save" id="taskListButton">
-                    </div>
-                </form>
-                <ul id="tasks_list">
-                </ul>
+            <div class="text-center row align-items-center">
+                <div class="centered">
+                    <h1 class="tittle">TO DO LIST</h1>
+                    <form action="index.html" id="form_tasks_list">
+                        <div>
+                            <input type="text" id="todoTxtbox" name="todoTxtbox" placeholder="Add your task here!" class="form-input">
+                            <input type="button" class="btn btn-primary form-button" value="Save" id="taskListButton">
+                        </div>
+                    </form>
+                </div>
+                <div>
+                    <ul id="tasks_list" class="tasks_list">
+                    </ul>
+                </div>
+                
             </div>
         </main>
         <script src="js/index.js"></script>
