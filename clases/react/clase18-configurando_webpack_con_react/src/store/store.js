@@ -94,6 +94,22 @@ export const loggerMiddleware = store => next => action => {
     return result;
 }
 
+export const storageMiddleware = store => next => action => {
+    //Estas seran las actions de interes, las cuales SOLO en estas acciones me interesa que se guarde la información en mi navegador
+    const actions = [
+        ActionTypes.ProductoAgregado,
+        ActionTypes.ProductoModificado,
+        ActionTypes.ProductoEliminado
+    ];
+    const result = next(action);
+    if (actions.indexOf(action.type) >= 0)
+    {
+        const state = store.getState();
+        sessionStorage.setItem("state", JSON.stringify(state));
+    }
+    return result;
+}
+
 export const agregarOModificarProductoMiddleware = store => next => action => {
     if (action.type != ActionTypes.ProductoAgregadoModificado)
     {
