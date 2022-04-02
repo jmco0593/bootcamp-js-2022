@@ -21,10 +21,6 @@ function happyNumber(number)
         repeated_numbers.push(total);
         number = total;
         i++;
-
     }
     return res;
 }
-
-const test = 97;
-console.log(happyNumber(test));
