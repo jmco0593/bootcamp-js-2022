@@ -17,7 +17,6 @@ function roman2int(num)
     {
         if (!((i + 1) >= num.length))
         {
-            const x = definitions[num[i]];
             let subs = definitions[num[i+1]] - definitions[num[i]];
             if (special_cases.includes(subs))
             {
