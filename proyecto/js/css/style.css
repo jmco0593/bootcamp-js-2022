@@ -1,55 +1,140 @@
-.centered {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+:root {
+    --myGreen: #45eba4;
+    --myDarkGreen: #2eaf77;
+    --MyBlue: #13b0d7;
+    --myDarkBlue: #0d8faf;
+    --MyGray: #efefef;;
+    --MyWhite: #FFFFFF;
+    --MyRed: #e74c3c;
+    --myDarkRed: #c53f30;
   }
 
-.tittle {
-    color:white;
-    font-size: 50px;
-}
-
-body {
-    font-family: Roboto, sans-serif;
-    background:rgb(0, 0, 0) url("../static/background.jpg");
-    background-repeat: no-repeat;
-    width: 100%;
-    height:100%;
-    background-position: center center;
-    text-align:center;
-    margin:auto;
-    padding:0;
-    place-items: center;
-}
-
-.form-button {
-    font: inherit;
-    border-radius: 10px 10px 10px 10px;
-    border: 0;
-    outline: 0;
+*{
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
-    height:60px;
-    width:100px;
-    vertical-align: middle;
-    color:white;
+    font-family: Roboto, sans-serif;
 }
 
-.form-input{
-    font: inherit;
-    border-radius: 10px 10px 10px 10px;
-    height:60px;
-    width:350px;
-    font-size:14pt;
-    vertical-align: middle;
-    text-indent:20px;
+body{
+    height: 100vh;
+    width: 100%;
+    background: linear-gradient(var(--myGreen), var(--MyBlue));
+    overflow: hidden;
+
 }
 
 .card{
-    color:white;
-    position: relative;
+    margin: 120px auto;
+    max-width: 400px;
+    width: 100%;
+    background-color: var(--MyWhite);
+    border-radius: 5px;
+    padding: 25px;
+
 }
 
-.tasks_list{
+.title{
+    font-size: 30px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.inputField{
+    display: flex; /*ESTO SIRVE PARA PODER ALINEAR DE FORMA LINEAL LOS ELEMENTOS, MAS INFORMACION EN FLEXBOX CSS*/
+    height: 40px;
+    width: 100%;
+}
+
+.inputField input{
+    width: 85%;
+    height: 100%;
+    border: 1px solid var(--MyGray);
+    font-size: 17px;
+    border-radius: 3px;
+    padding-left: 15px;
+}
+
+.inputField button {
+    width: 60px;
+    height: 100%;
+    border: none;
+    outline: none;
+    background: var(--myGreen);
+    color: var(--MyWhite);
+    font-size: 22px;
+    cursor:pointer;
+    border-radius: 3px;
+    margin-left: 5px;
+    transition: all 0.3s ease;
+}
+
+.inputField button:hover{
+    background: var(--myDarkGreen);
+}
+
+.list{
+    padding-left: 0rem;
+    margin-top: 10px;
+    max-height: 250px;
+    overflow-y: auto;
+}
+
+.list li {
+    list-style: none;
+    height: 45px;
+    line-height: 45px;
+    position: relative;
+    background: var(--MyGray);
+    border-radius: 3px;
+    margin-bottom: 8px;
+    padding: 0 15px;
+    cursor: default;
+    overflow: hidden;
+}
+
+.list li span {
+    position: absolute;
+    right: -45px;
+    color: var(--MyWhite);
+    width: 45px;
+    text-align: center;
+    background: var(--MyRed);
+    border-radius: 0 3px 3px 0;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.list li:hover span{
+    right: 0px;
     
+}
+
+.list li span:hover {
+    background: var(--myDarkRed);
+}
+
+.footer {
+    display: flex;
+    width: 100%;
+    margin-top: 20px;
+    justify-content: space-evenly;
+}
+
+.footer button {
+    width: 70px;
+    height: 100%;
+    border: none;
+    outline: none;
+    background: var(--MyBlue);
+    color: var(--MyWhite);
+    font-size: 16px;
+    cursor:pointer;
+    border-radius: 3px;
+    margin-left: 6px 10px;
+    transition: all 0.3s ease;
+}
+
+.footer button:hover{
+    background: var(--myDarkBlue);
 }
