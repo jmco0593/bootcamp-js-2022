@@ -8,17 +8,6 @@ En la carpeta de retos encontrará los archivos de los retos (resolución de pro
 
 En la carpeta de proyecto encontrará el siguiente proyecto:
 
-<h3>One page site</h3>
+<h3>Todo List</h3>
 
-El proyecto consistirá en la construcción y diseño de un sitio web one page. Este estará conformado por 4 secciones, las cuales son:
-Slider o imagen única principal
-Productos o elementos destacados
-Video incrustado
-Categorías de productos o elementos
-
-El diseño a utilizar será copiado del home del webpage siguiente: https://livingst.com/.
-
-Observaciones:
-El proyecto será trabajado de 2 formas:
-Por medio de HTML, CSS y vanilla JS
-Por medio de react y node js
+El proyecto consistirá en la construcción y diseño de una lista de tareas.
