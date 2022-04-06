@@ -93,11 +93,11 @@ body{
     overflow: hidden;
 }
 
-.list li span {
+.delete{
     position: absolute;
-    right: -45px;
+    right: 0px;
     color: var(--MyWhite);
-    width: 45px;
+    width: 35px;
     text-align: center;
     background: var(--MyRed);
     border-radius: 0 3px 3px 0;
@@ -105,14 +105,28 @@ body{
     transition: all 0.3s ease;
 }
 
-.list li:hover span{
-    right: 0px;
-    
-}
-
-.list li span:hover {
+.delete:hover {
     background: var(--myDarkRed);
 }
+
+.check{
+    position: absolute;
+    right: 35px;
+    color: var(--MyWhite);
+    width: 35px;
+    text-align: center;
+    background: var(--myGreen);
+    border-radius: 3px 0px 0px 3px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.check:hover {
+    background: var(--myDarkGreen);
+}
+
+
+
 
 .footer {
     display: flex;
