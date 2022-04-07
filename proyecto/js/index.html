@@ -18,18 +18,19 @@
             </div>
             <ul class="list" id="taskList">
             </ul>
+            
             <div class="footer">
                 <span>Number of tasks:</span><span id=counterSpan>0</span>
-                <button id="clearTasksButton" onclick="clearList()">Clear</button>
+                <button id="clearTasksButton" onclick="clearTaskList()">Clear</button>
             </div>
         </div>
-        <div class="card">
+        <div class="card" id="completedTaskCard" style="visibility: hidden;">
             <header class="title">Completed Tasks</header>
             <ul class="list" id="completedTaskList">
             </ul>
             <div class="footer">
                 <span>Number of completed tasks:</span><span id=counterCompletedSpan>0</span>
-                <button id="clearTasksButton" onclick="clearList()">Clear</button>
+                <button id="clearTasksButton" onclick="clearCompletedTaskList()">Clear</button>
             </div>
         </div>
         <script src="js/index.js" type="text/javascript"></script>

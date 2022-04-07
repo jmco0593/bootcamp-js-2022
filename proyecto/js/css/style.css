@@ -3,7 +3,8 @@
     --myDarkGreen: #2eaf77;
     --MyBlue: #13b0d7;
     --myDarkBlue: #0d8faf;
-    --MyGray: #efefef;;
+    --MyGray: #efefef;
+    --myDarkGray:#cecece;
     --MyWhite: #FFFFFF;
     --MyRed: #e74c3c;
     --myDarkRed: #c53f30;
@@ -26,7 +27,7 @@ body{
 
 .card{
     margin: 120px auto;
-    max-width: 400px;
+    max-width: 500px;
     width: 100%;
     background-color: var(--MyWhite);
     border-radius: 5px;
@@ -125,9 +126,6 @@ body{
     background: var(--myDarkGreen);
 }
 
-
-
-
 .footer {
     display: flex;
     width: 100%;
@@ -146,9 +144,27 @@ body{
     cursor:pointer;
     border-radius: 3px;
     margin-left: 6px 10px;
-    transition: all 0.3s ease;
 }
 
 .footer button:hover{
     background: var(--myDarkBlue);
+    transition: all 2s ease;
+}
+
+.taskId{
+    position: absolute;
+    left: 0px;
+    color: var(--MyWhite);
+    width: 35px;
+    text-align: center;
+    background: var(--myDarkGray);
+    border-radius: 3px 0px 0px 3px;
+    cursor: pointer;
+}
+
+.taskText{
+    position: absolute;
+    left: 40px;
+    cursor: text;
+    width: 76%;
 }
