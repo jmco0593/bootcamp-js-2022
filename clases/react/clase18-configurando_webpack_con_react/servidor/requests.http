@@ -10,7 +10,30 @@ POST http://localhost:5000/productos
 content-type: application/json
 
 {
-    "nombre": "producto b",
+    "nombre": "libro",
     "cantidad": 2,
     "precio": 20
 }
+
+###MODIFICAR PRODUCTO
+PUT http://localhost:5000/productos/6
+content-type: application/json
+
+{
+    "nombre": "producto dos",
+    "cantidad": 4,
+    "precio": 40
+}
+
+###eliminar PRODUCTO
+DELETE http://localhost:5000/productos/1
+content-type: application/json
+
+###obtener PRODUCTO
+GET http://localhost:5000/productos/1
+content-type: application/json
+
+
+###filtrar PRODUCTOS
+GET http://localhost:5000/productos?filtro=libro
+content-type: application/json
