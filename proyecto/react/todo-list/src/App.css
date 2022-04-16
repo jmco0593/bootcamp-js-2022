@@ -1,38 +1,170 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+:root {
+    --myGreen: #45eba4;
+    --myDarkGreen: #2eaf77;
+    --MyBlue: #13b0d7;
+    --myDarkBlue: #0d8faf;
+    --MyGray: #efefef;
+    --myDarkGray:#cecece;
+    --MyWhite: #FFFFFF;
+    --MyRed: #e74c3c;
+    --myDarkRed: #c53f30;
   }
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Roboto, sans-serif;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+body{
+    height: 100vh;
+    width: 100%;
+    background: linear-gradient(var(--myGreen), var(--MyBlue));
+    overflow: hidden;
+
 }
 
-.App-link {
-  color: #61dafb;
+.card{
+    margin: 120px auto;
+    max-width: 500px;
+    width: 100%;
+    background-color: var(--MyWhite);
+    border-radius: 5px;
+    padding: 25px;
+
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.title{
+    font-size: 30px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.inputField{
+    display: flex; /*ESTO SIRVE PARA PODER ALINEAR DE FORMA LINEAL LOS ELEMENTOS, MAS INFORMACION EN FLEXBOX CSS*/
+    height: 40px;
+    width: 100%;
+}
+
+.inputField input{
+    width: 85%;
+    height: 100%;
+    border: 1px solid var(--MyGray);
+    font-size: 17px;
+    border-radius: 3px;
+    padding-left: 15px;
+}
+
+.inputField button {
+    width: 60px;
+    height: 100%;
+    border: none;
+    outline: none;
+    background: var(--myGreen);
+    color: var(--MyWhite);
+    font-size: 22px;
+    cursor:pointer;
+    border-radius: 3px;
+    margin-left: 5px;
+    transition: all 0.3s ease;
+}
+
+.inputField button:hover{
+    background: var(--myDarkGreen);
+}
+
+.list{
+    padding-left: 0rem;
+    margin-top: 10px;
+    max-height: 250px;
+    overflow-y: auto;
+}
+
+.list li {
+    list-style: none;
+    height: 45px;
+    line-height: 45px;
+    position: relative;
+    background: var(--MyGray);
+    border-radius: 3px;
+    margin-bottom: 8px;
+    padding: 0 15px;
+    cursor: default;
+    overflow: hidden;
+}
+
+.delete{
+    position: absolute;
+    right: 0px;
+    color: var(--MyWhite);
+    width: 35px;
+    text-align: center;
+    background: var(--MyRed);
+    border-radius: 0 3px 3px 0;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.delete:hover {
+    background: var(--myDarkRed);
+}
+
+.check{
+    position: absolute;
+    right: 35px;
+    color: var(--MyWhite);
+    width: 35px;
+    text-align: center;
+    background: var(--myGreen);
+    border-radius: 3px 0px 0px 3px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.check:hover {
+    background: var(--myDarkGreen);
+}
+
+.footer {
+    display: flex;
+    width: 100%;
+    margin-top: 20px;
+    justify-content: space-evenly;
+}
+
+.footer button {
+    width: 70px;
+    height: 100%;
+    border: none;
+    outline: none;
+    background: var(--MyBlue);
+    color: var(--MyWhite);
+    font-size: 16px;
+    cursor:pointer;
+    border-radius: 3px;
+    margin-left: 6px 10px;
+}
+
+.footer button:hover{
+    background: var(--myDarkBlue);
+    transition: all 2s ease;
+}
+
+.taskId{
+    position: absolute;
+    left: 0px;
+    color: var(--MyWhite);
+    width: 35px;
+    text-align: center;
+    background: var(--myDarkGray);
+    border-radius: 3px 0px 0px 3px;
+    cursor: pointer;
+}
+
+.taskText{
+    position: absolute;
+    left: 40px;
+    cursor: text;
+    width: 76%;
 }
