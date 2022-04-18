@@ -1,0 +1,5 @@
+###HOME
+GET http://localhost:5001/
+
+###GET TASKS
+GET http://localhost:5001/gettasks

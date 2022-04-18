@@ -7,6 +7,7 @@ const ActionTypes = {
     ProductoEliminado: "producto-eliminado",
     ProductoSeleccionado: "producto-seleccionado",
     ProductoAgregadoModificado: "producto-agregado-o-modificado",
+    AsignarProductos: "asignar-productos"
 }
 /*
 Todo el manejo de estado deberia de ir en el reducer, pero todo lo que es lógica deberian de estar en middlewares.
@@ -27,6 +28,12 @@ export const reducer = (state, action) => {
         
         case ActionTypes.ProductoSeleccionado:
             return productoSeleccionadoReducer(state, action);
+        
+        case ActionTypes.AsignarProductos:
+            return {
+                ...state,
+                productos: action.payload
+            };
         
         default:
             return state;
