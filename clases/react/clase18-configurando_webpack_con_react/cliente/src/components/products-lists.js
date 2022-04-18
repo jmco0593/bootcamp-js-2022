@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { productoSeleccionado } from "../store/store";
+import { productoSeleccionado, productoEliminado } from "../store/store";
 
 const ProductItem = (prop) => {
     const producto = prop.producto;

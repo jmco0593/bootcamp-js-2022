@@ -13,7 +13,6 @@ const taskReducer = (state=initialState, action) => {
             return [];
         
         case 'backendTasksList':
-            console.log(action.payload);
             return action.payload;
 
         default:

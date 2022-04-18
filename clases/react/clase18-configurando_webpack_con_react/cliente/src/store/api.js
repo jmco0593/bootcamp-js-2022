@@ -12,14 +12,14 @@ async function request(httpCall)
 
 //async permite que todo lo que trabaje como promesas lo trabaje como código secuencial.
 const all = () => request(() => axios.get(url));
-const single = () => request(() => axios.get(url + codigo));
-const add = () => request(axios.post(url, producto));
+const single = (codigo) => request(() => axios.get(url + codigo));
+const add = (producto) => request(() => axios.post(url, producto));
 //Para este caso particular lo que se hace es que se espera un objeto de producto y en la nomenclatura se establece que codigo será una variable llamada código
 //que albergará el parámetro códugo que se recibe y ...producto todo el resto del objeto recibido.
-const update = ({ codigo, ...producto}) => request(axios.put(url + codigo, producto));
-const remove = (codigo) => request(axios.delete(url + codigo));
+const update = ({ codigo, ...producto}) => request(() => axios.put(url + codigo, producto));
+const remove = (codigo) => request(() => axios.delete(url + codigo));
 
-export {
+export default{
     all,
     single,
     add,

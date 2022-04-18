@@ -1,12 +1,12 @@
 ###HOME
-GET http://localhost:5000/
+GET http://localhost:5001/
 
 ###OBTENER PRODUCTOS
-GET http://localhost:5000/productos
+GET http://localhost:5001/productos
 Authorization: hola-mundo
 
 ###CREAR PRODUCTO
-POST http://localhost:5000/productos
+POST http://localhost:5001/productos
 content-type: application/json
 
 {
@@ -16,7 +16,7 @@ content-type: application/json
 }
 
 ###MODIFICAR PRODUCTO
-PUT http://localhost:5000/productos/6
+PUT http://localhost:5001/productos/6
 content-type: application/json
 
 {
@@ -26,14 +26,14 @@ content-type: application/json
 }
 
 ###eliminar PRODUCTO
-DELETE http://localhost:5000/productos/1
+DELETE http://localhost:5001/productos/4
 content-type: application/json
 
 ###obtener PRODUCTO
-GET http://localhost:5000/productos/1
+GET http://localhost:5001/productos/1
 content-type: application/json
 
 
 ###filtrar PRODUCTOS
-GET http://localhost:5000/productos?filtro=libro
+GET http://localhost:5001/productos?filtro=libro
 content-type: application/json

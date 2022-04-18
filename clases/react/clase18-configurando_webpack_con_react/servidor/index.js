@@ -8,7 +8,8 @@ let productos = [
         nombre: "producto a",
         cantidad: 1,
         precio: 10,
-        codigo: lastId
+        codigo: lastId,
+        total: 10
     }
 ]
 
@@ -46,9 +47,9 @@ app.get("/productos", (req, res) => {
 
 app.post("/productos", (req, res) => {
     
-    console.log("body", req.body);
     lastId++;
-    const producto = {...req.body, codigo:lastId};
+    const {cantidad, precio} = req.body;
+    const producto = {...req.body, codigo:lastId, total: cantidad * precio};
     productos.push(producto);
     res.status(201);
     res.json(producto);
@@ -68,8 +69,9 @@ app.put("/productos/:codigo", (req, res) =>{
     }
     else
     {
+        const {cantidad, precio} = req.body;
         const index = productos.indexOf(producto);
-        const nuevoProducto = productos[index] = {...req.body, codigo};
+        const nuevoProducto = productos[index] = {...req.body, codigo, total: cantidad * precio};
         res.status(200);
         res.json(nuevoProducto);
     }
@@ -117,7 +119,7 @@ app.delete("/productos/:codigo", (req, res) =>{
 
 
 app.listen(5001, () => {
-    console.log("Servidor express corriendo en puerto 5001");
+    console.log("Servidor express corriendo en puerto 5001")
 })
 
 // function isAuthenticated(req, res, next) {
