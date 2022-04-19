@@ -12,8 +12,6 @@ ReactDOM.render(
     </Provider>, 
     rootElement);
 
-store.dispatch({type: "obtener-productos"});
-
 
 // function test()
 // {

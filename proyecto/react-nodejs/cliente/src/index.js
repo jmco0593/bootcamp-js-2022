@@ -16,10 +16,10 @@ root.render(
 );
 
 //CALLING INITIAL VALUES FROM SERVER
-const promesa = apiGetTasks();
-        promesa.then((response) => {
-            store.dispatch(reduxBackendTasksList(response));
-        })
-        promesa.catch((e)=> {
-            console.log("Error", e)
-        })
+// const promesa = apiGetTasks();
+//         promesa.then((response) => {
+//             store.dispatch(reduxBackendTasksList(response));
+//         })
+//         promesa.catch((e)=> {
+//             console.log("Error", e)
+//         })

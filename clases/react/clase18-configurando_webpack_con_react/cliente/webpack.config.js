@@ -16,13 +16,14 @@ module.exports ={
         //filename: "main.js", //nombre del archivo
         filename: "[name].[contenthash].js", //La de arriba es como la forma normal, pero este es para evitar el hash del navegador.Esto evita problemas con cache.
         path: path.resolve(__dirname, "dist"), //lo guarde en la ruta absoluta con la variable path
-        publicPath: "" 
+        publicPath: "/" //nos indica donde estan los JS y CSS 
     },
     mode: mode,
     devServer: {
         port: 5000,
         open: true,
-        hot: true //Solo refrescar elementos de la página que necesitamos o hot reload
+        hot: true, //Solo refrescar elementos de la página que necesitamos o hot reload
+        historyApiFallback: true
     },
     //mode: "production", //Para definir en que entorno estara. En este caso es para produccion, que dara como resultado optimizarlo.
     module: { 

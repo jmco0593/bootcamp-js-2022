@@ -12,33 +12,26 @@ const ActionTypes = {
 /*
 Todo el manejo de estado deberia de ir en el reducer, pero todo lo que es lógica deberian de estar en middlewares.
 */
-export const reducer = (state, action) => {
+
+export const producto = (state ={}, action) => {
     switch (action.type)
     {
-        case ActionTypes.ProductoAgregado:
-            return productoAgregadoReducer(state, action);
-
-    
-        case ActionTypes.ProductoModificado:
-            return productoModificadoReducer(state,action);
-
-
-        case ActionTypes.ProductoEliminado:
-            return productoEliminadoReducer(state, action);
-        
         case ActionTypes.ProductoSeleccionado:
-            return productoSeleccionadoReducer(state, action);
-        
-        case ActionTypes.AsignarProductos:
-            return {
-                ...state,
-                productos: action.payload
-            };
-        
+            return action.payload;
         default:
             return state;
     }
-}; 
+}
+
+export const productos = (state = [], action) => {
+    switch (action.type)
+    {
+        case ActionTypes.AsignarProductos:
+            return action.payload;
+        default:
+            return state;
+    }
+}
 
 
 //action builder: Esta es una función que devuelve el action que deseamos disparar
@@ -148,67 +141,67 @@ function productoSeleccionadoReducer(state,action) {
     };
 }
 
-function productoEliminadoReducer(state, action) {
-    const codigo = action.payload.codigo;
-    const productos = state.productos.filter((item) => item.codigo != codigo);
-    return {
-        ...state,
-        productos
-    };
-}
+// function productoEliminadoReducer(state, action) {
+//     const codigo = action.payload.codigo;
+//     const productos = state.productos.filter((item) => item.codigo != codigo);
+//     return {
+//         ...state,
+//         productos
+//     };
+// }
 
-function productoModificadoReducer(state, action) {
-    const producto = action.payload;
-    const productos = state.productos.slice();
-    const codigo = producto.codigo;
-    const total = producto.cantidad * producto.precio;
-    const old = productos.find((item) => item.codigo == codigo);
-    const index = productos.indexOf(old);
-    productos[index] = { ...producto, total };
-    return {
-        ...state,
-        productos
-    };
-}
+// function productoModificadoReducer(state, action) {
+//     const producto = action.payload;
+//     const productos = state.productos.slice();
+//     const codigo = producto.codigo;
+//     const total = producto.cantidad * producto.precio;
+//     const old = productos.find((item) => item.codigo == codigo);
+//     const index = productos.indexOf(old);
+//     productos[index] = { ...producto, total };
+//     return {
+//         ...state,
+//         productos
+//     };
+// }
 
-function productoAgregadoReducer(state, action) {
-    const producto = action.payload;
-    const total = producto.cantidad * producto.precio;
-    //Esta es una versión donde hacemos un cambio en nuestro estado y no creamos uno. Esta hace que no se comporte de una forma correcta nuestra
-    //aplicación
-    //state.productos.push(action.payload);
-    //Objetivo inmutable (creamos uno con base al anterior)
-    return {
-        ...state,
-        productos: [
-            ...state.productos,
-            {
-                ...producto,
-                //En JS se puede escribir de la siguiente forma las propiedades cuando la variable tiene el mismo nombre de la misma. Esto es equivalente
-                //a las líneas comentadas siguientes
-                total
-            }
-        ]
-    };
-}
+// function productoAgregadoReducer(state, action) {
+//     const producto = action.payload;
+//     const total = producto.cantidad * producto.precio;
+//     //Esta es una versión donde hacemos un cambio en nuestro estado y no creamos uno. Esta hace que no se comporte de una forma correcta nuestra
+//     //aplicación
+//     //state.productos.push(action.payload);
+//     //Objetivo inmutable (creamos uno con base al anterior)
+//     return {
+//         ...state,
+//         productos: [
+//             ...state.productos,
+//             {
+//                 ...producto,
+//                 //En JS se puede escribir de la siguiente forma las propiedades cuando la variable tiene el mismo nombre de la misma. Esto es equivalente
+//                 //a las líneas comentadas siguientes
+//                 total
+//             }
+//         ]
+//     };
+// }
 
 
-export function generadorCodigoProductoBuilder(CodigoInicial)
-{
-    let codigo = CodigoInicial;
-    return store => next => action => {
-        if (action.type != ActionTypes.ProductoAgregado)
-        {
-            return next(action);
-        }
-        codigo++;
-        const actionToDispatch = {
-            ...action,
-            payload: {
-                ...action.payload,
-                codigo
-            }
-        };
-        return next(actionToDispatch);
-    };
-}
+// export function generadorCodigoProductoBuilder(CodigoInicial)
+// {
+//     let codigo = CodigoInicial;
+//     return store => next => action => {
+//         if (action.type != ActionTypes.ProductoAgregado)
+//         {
+//             return next(action);
+//         }
+//         codigo++;
+//         const actionToDispatch = {
+//             ...action,
+//             payload: {
+//                 ...action.payload,
+//                 codigo
+//             }
+//         };
+//         return next(actionToDispatch);
+//     };
+// }

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 //import { agregarOModificarProducto } from "../store/store";
 import { useDispatch, useSelector} from "react-redux";
+import { useParams } from "react-router-dom";
 import { agregarOModificarProducto, productoSeleccionado } from "../store/store";
 
 const ProductForm = () => {
@@ -10,9 +11,9 @@ const ProductForm = () => {
         {codigo: 3, nombre: 'Categoria 3'},
         {codigo: 4, nombre: 'Categoria 4'},
     ];
-
+    
+    const {codigo} = useParams();
     const producto = useSelector((state) => state.producto);
-
     const dispatch = useDispatch();
     const [values, setValues] = useState({
         codigo: 0,
@@ -31,6 +32,12 @@ const ProductForm = () => {
             precio: producto.precio || '',
             categoria: producto.categoria || 1
         })
+
+        if (codigo != producto.codigo)
+        {
+            dispatch(productoSeleccionado(codigo));
+        }
+
     }, [producto]);
 
     const onChange = (event) => {
@@ -59,7 +66,7 @@ const ProductForm = () => {
     return <form action="index.html" onSubmit={onSubmit}>
     <div className="mb-3">
         <label htmlFor="nombre" className="form-label">Nombre</label>
-        <input type="text" name="nombre" id="nombre" className="form-control" value={values.name} onChange={onChange}/>
+        <input type="text" name="nombre" id="nombre" className="form-control" value={values.nombre} onChange={onChange}/>
     </div>
     <div className="mb-3">
         <label htmlFor="cantidad" className="form-label">Cantidad</label>

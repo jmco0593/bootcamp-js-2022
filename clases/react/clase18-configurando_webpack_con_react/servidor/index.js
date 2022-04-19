@@ -1,18 +1,8 @@
 import express from "express";
 import cors from "cors";
 import bodyParser from "body-parser";
-
-let lastId = 1;
-let productos = [
-    {
-        nombre: "producto a",
-        cantidad: 1,
-        precio: 10,
-        codigo: lastId,
-        total: 10
-    }
-]
-
+import {productos} from "./database"
+;
 //DECLARACIÓN DE OBJETO EXPRESS
 const app = express();
 
@@ -27,66 +17,40 @@ app.get("/", (req, res) => res.send("<h1>Hola mundo </h1>"));
 //app.get("/productos", isAuthenticated, (req, res) => res.json(productos));
 //Forma sin middleware
 //app.get("/productos", (req, res) => res.json(productos));
-app.get("/productos", (req, res) => {
+app.get("/productos", async (req, res) => {
 
     const filtro = req.query.filtro;
+    let result;
 
     if (filtro)
     {
-        res.json(productos.filter(p => p.nombre.indexOf(filtro) >= 0));
+        result = await productos.filter(filtro);
     }
     else
     {
-        res.json(productos);
+        result = await productos.all();
     }
-    res.json(productos);
+    res.json(result);
 });
 
 //use sirve para que ejecute la función en paréntesis cada vez que se ejecuta la aplicación
 //app.use(isAuthenticated);
 
-app.post("/productos", (req, res) => {
-    
-    lastId++;
-    const {cantidad, precio} = req.body;
-    const producto = {...req.body, codigo:lastId, total: cantidad * precio};
-    productos.push(producto);
+app.post("/productos", async (req, res) => {
+    const producto = await productos.add(req.body);
     res.status(201);
     res.json(producto);
 })
 
-//MODIFICA UN ELEMENT EXISTENTE, PUT DE HTTP
-app.put("/productos/:codigo", (req, res) =>{
-    const codigo = parseInt(req.params.codigo, 10);
-    const producto = productos.find(p => p.codigo == codigo);
-
-    if (!producto)
-    {
-        res.status(404);
-        res.json({
-            mensaje: "No existe ningún producto con codigo " + codigo
-        })
-    }
-    else
-    {
-        const {cantidad, precio} = req.body;
-        const index = productos.indexOf(producto);
-        const nuevoProducto = productos[index] = {...req.body, codigo, total: cantidad * precio};
-        res.status(200);
-        res.json(nuevoProducto);
-    }
-})
 //PARA SOLICITAR INFOR PARA PRODUCTO UNICO
-app.get("/productos/:codigo", (req, res) =>{
+app.get("/productos/:codigo", async (req, res) =>{
     const codigo = parseInt(req.params.codigo, 10);
-    const producto = productos.find(p => p.codigo == codigo);
+    const producto = await productos.single(codigo);
 
     if (!producto)
     {
         res.status(404);
-        res.json({
-            mensaje: "No existe ningún producto con codigo " + codigo
-        });
+        res.json({mensaje: "No existe ningún producto con codigo " + codigo});
     }
     else
     {
@@ -95,24 +59,34 @@ app.get("/productos/:codigo", (req, res) =>{
     }
 })
 
-//ELIMINA UN ELEMENT EXISTENTE, delete DE HTTP
-app.delete("/productos/:codigo", (req, res) =>{
-    const codigo = parseInt(req.params.codigo, 10);
-    const producto = productos.find(p => p.codigo == codigo);
 
-    if (!producto)
-    {
-        res.status(404);
-        res.json({
-            mensaje: "No existe ningún producto con codigo " + codigo
-        });
+//MODIFICA UN ELEMENT EXISTENTE, PUT DE HTTP
+app.put("/productos/:codigo", async (req, res) =>{
+    const codigo = parseInt(req.params.codigo, 10);
+    try {
+        const newProducto = await productos.update(codigo, req.body);
+        res.status(200);
+        res.json({newProducto})
     }
-    else
-    {
-        productos = productos.filter(x => x != producto);
+    catch (mensage){
+        res.status(404);
+        res.json({mensage})
+    }
+})
+
+//ELIMINA UN ELEMENT EXISTENTE, delete DE HTTP
+app.delete("/productos/:codigo", async (req, res) =>{
+    const codigo = parseInt(req.params.codigo, 10);
+    try {
+        await productos.remove(codigo);
         res.status(200);
         res.json({message: "Producto eliminado"});
+    } 
+    catch (mensaje) {
+        res.status(404);
+        res.json({mensaje});
     }
+
 })
 
 

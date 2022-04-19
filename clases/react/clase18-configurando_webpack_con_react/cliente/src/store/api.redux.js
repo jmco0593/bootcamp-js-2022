@@ -1,4 +1,6 @@
 import api from "./api";
+import {push} from "connected-react-router";
+
 const asignarProductos = (payload) => ({
     type: "asignar-productos",
     payload
@@ -17,14 +19,12 @@ const apiMiddleware = ({dispatch}) => (next) => async (action) => {
         
         case 'producto-agregado':{
             await api.add(action.payload);
-            const productos = await api.all();
-            dispatch(asignarProductos(productos));
+            dispatch(push("/"));
             break;
         }
         case "producto-modificado": {
             await api.update(action.payload);
-            const productos = await api.all();
-            dispatch(asignarProductos(productos));
+            dispatch(push("/"));
             break;
         }
 
@@ -34,9 +34,25 @@ const apiMiddleware = ({dispatch}) => (next) => async (action) => {
             dispatch(asignarProductos(productos));
             break;
         }
+
+        case "producto-seleccionado": {
+            const {codigo} = action.payload;
+            if (codigo)
+            {
+                const producto = await api.single(codigo);
+                next({type: action.type, payload: producto});
+                
+            }
+            else {
+                next({type: action.type, payload: {}});
+            }
+            
+            break;
+        }
              
         default:
             next(action);
+            break;
 
 
     }
