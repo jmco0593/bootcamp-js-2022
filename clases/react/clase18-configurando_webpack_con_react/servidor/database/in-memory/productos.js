@@ -24,11 +24,11 @@ const single = (codigo) => Promise.resolve(productos.find(p => p.codigo == codig
 const update = (codigo, producto) => {
     const old = productos.find(p => p.codigo == codigo);
     if (!old){
-        return Promise.resolve("No existe ningun producto con este codigo " + codigo);
+        return Promise.reject("No existe ningun producto con este codigo " + codigo);
     }
-    const index = producto.indexOf(old);
+    const index = productos.indexOf(old);
     const nuevoProducto = productos[index] = {...producto, codigo: lastId, total: producto.cantidad*producto.precio};
-    return Promise.reject(nuevoProducto);
+    return Promise.resolve(nuevoProducto);
 }
 
 const remove = (codigo) => {
@@ -36,9 +36,8 @@ const remove = (codigo) => {
     if (!producto){
         Promise.reject("No existe ningun producto con este codigo " + codigo);
     }
-    const index = producto.indexOf(old);
-    productos.splice(index,1);
-    return Promise.resolve(nuevoProducto);
+    const index = productos.indexOf(producto);
+    return Promise.resolve(productos.splice(index,1));
 }
 
 export default{

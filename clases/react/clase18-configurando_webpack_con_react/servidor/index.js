@@ -65,6 +65,7 @@ app.put("/productos/:codigo", async (req, res) =>{
     const codigo = parseInt(req.params.codigo, 10);
     try {
         const newProducto = await productos.update(codigo, req.body);
+        console.log(newProducto)
         res.status(200);
         res.json({newProducto})
     }
