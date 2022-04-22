@@ -1,13 +1,18 @@
 <h2 style="text-align:center;">BOOTCAMP Laserants-Telus 2022</h2>
 
-En este repositorio encontrá todas las anotaciones y trabajos relacionados al bootcamp organizado por la empresa Guatemalteca LaserAnts acerca de nodejs y react.
+This repository cotains all the related files that was generated in the bootcamp of Laserant-Telus about React and NodeJS. This is divided in 3 main folders:
+<ul>
+<li><span style="font-weight:bolder;">Clases: </span>this folder cantains all the files related with the lessons of the bootcamp</li>
+<li><span style="font-weight:bolder;">Proyecto: </span>this folder contain files related to a project that was made for the bootcamp. This is a "TodoList" and this was made with 3 differnt ways:</li>
+    <ul>
+        <li><span style="font-weight:bolder;">JS: </span> Vanilla JS</li>
+        <li><span style="font-weight:bolder;">JS-Redux: </span> Vanilla JS with redux</li>
+        <li><span style="font-weight:bolder;">React-Redux-NodeJS-MongoDB: </span> Using React for frotend, NodeJS for backend and MongoDB for DataBase</li>
+    </ul>
+<li><span style="font-weight:bolder;">Retos: </span>this folder contains some JS code challenges that was porpused in the course; each file it's a different challenge.</li>
+</ul>
 
-En la carpeta de clases se encontrarán notas de las clases asíncronas y síncronas.
+<h3>PROYECT INSTRUCTIONS</h3>
 
-En la carpeta de retos encontrará los archivos de los retos (resolución de problemas puntuales con JS) propuestos trabajados.
+How I described before, the proyect folder contains 3 differents ways that the proyect is made but this instructions are focused in the "React-Redux-NodeJS-MongoDB".
 
-En la carpeta de proyecto encontrará el siguiente proyecto:
-
-<h3>Todo List</h3>
-
-El proyecto consistirá en la construcción y diseño de una lista de tareas.
