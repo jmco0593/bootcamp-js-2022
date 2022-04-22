@@ -10,27 +10,29 @@ POST http://localhost:5001/productos
 content-type: application/json
 
 {
-    "nombre": "libro",
-    "cantidad": 2,
-    "precio": 20
+    "nombre": "lapicero",
+    "categoria": 2,
+    "cantidad": 50,
+    "precio": 100
 }
 
 ###MODIFICAR PRODUCTO
-PUT http://localhost:5001/productos/6
+PUT http://localhost:5001/productos/62621cee7e2f0d00d01a65d0
 content-type: application/json
 
 {
-    "nombre": "producto dos",
+    "nombre": "producto a 2.0",
     "cantidad": 4,
-    "precio": 40
+    "precio": 40,
+    "categoria": 3
 }
 
 ###eliminar PRODUCTO
-DELETE http://localhost:5001/productos/4
+DELETE http://localhost:5001/productos/62621cee7e2f0d00d01a65d0
 content-type: application/json
 
 ###obtener PRODUCTO
-GET http://localhost:5001/productos/1
+GET http://localhost:5001/productos/62622270fb9e7c69dee178c9
 content-type: application/json
 
 
