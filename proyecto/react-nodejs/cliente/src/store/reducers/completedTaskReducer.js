@@ -12,6 +12,10 @@ const completedTaskReducer = (state=initialState, action) => {
         case 'clearCompletedTaskList':
             return [];
 
+        case 'backendCompletedTasksList':
+            return action.payload;
+    
+
         default:
             return state;
     }

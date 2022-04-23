@@ -9,7 +9,6 @@ function CardContainer()
         <div>
             <TaskCard/>
             <CompletedTaskCard/>
-            <ApiButtons/>
         </div>
     );
 }

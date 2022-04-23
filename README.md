@@ -12,7 +12,12 @@ This repository cotains all the related files that was generated in the bootcamp
 <li><span style="font-weight:bolder;">Retos: </span>this folder contains some JS code challenges that was porpused in the course; each file it's a different challenge.</li>
 </ul>
 
-<h3>PROYECT INSTRUCTIONS</h3>
+<h3>PROJECT INSTRUCTIONS</h3>
 
 How I described before, the proyect folder contains 3 differents ways that the proyect is made but this instructions are focused in the "React-Redux-NodeJS-MongoDB".
+
+The name of the folder that this is contained is: react-nodejs. The project contains 2 folders, cliente and servidor, each one cotaoins the related files for client (React) and server(NodeJS) parts of the proyect. Both parts can be started with the command:
+
+npm start
+
 

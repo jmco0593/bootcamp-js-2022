@@ -1,15 +1,15 @@
 import express from "express";
 import cors from 'cors';
 import bodyParser from 'body-parser';
-
+import {tasks} from "./database";
 
 const app = express();
-const tasks = [
-    {id: 1, task:"test X"},
-    {id: 2, task:"test 2"},
-    {id: 3, task:"test 3"}
-];
-let completedTasks = [];
+// const tasks = [
+//     {id: 1, task:"test X"},
+//     {id: 2, task:"test 2"},
+//     {id: 3, task:"test 3"}
+// ];
+// let completedTasks = [];
 
 //LOG OF APLICATION START
 app.listen(5001, () => {
@@ -45,9 +45,25 @@ URLS:
 /obtain
 
 */
-app.get("/", (req, res) => res.send("<h1>Hola mundo </h1>"));
 //TASKS
-app.get("/gettasks", (req, res) => res.json(tasks));
+app.get("/gettasks", async (req, res) => {
+    const dbtasks = await tasks.loadTasks();
+    console.log(dbtasks);
+    res.json(dbtasks);
+}); 
+
+app.post("/savetasks", async (req, res) => {
+    tasks.addTasks(req.body);
+}); 
+
 //COMPLETED TASKS
-app.get("/getcompletedtasks", (req, res) => res.json(completedTasks));
+app.get("/getcompletedtasks", async (req, res) => {
+    const dbtasks = await tasks.loadCompletedTasks();
+    console.log(dbtasks);
+    res.json(dbtasks);
+}); 
+
+app.post("/savecompletedtasks", async (req, res) => {
+    tasks.addCompletedTasks(req.body);
+}); 
 

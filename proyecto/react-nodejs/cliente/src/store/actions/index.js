@@ -85,3 +85,10 @@ export const reduxBackendTasksList = (tasks) => {
         payload: tasks
     }
 }
+
+export const reduxBackendCompletedTasksList = (tasks) => {
+    return {
+        type: 'backendCompletedTasksList',
+        payload: tasks
+    }
+}

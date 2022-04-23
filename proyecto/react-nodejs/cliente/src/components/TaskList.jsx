@@ -19,7 +19,6 @@ function TaskList()
             {listOfTasks.map((task) => (
                 <Task key={uuid()} id={task.id} task={task.task} outsideNumber={outsideNumberSet()}/>
             ))
-                
             }
         </ul>
     )
