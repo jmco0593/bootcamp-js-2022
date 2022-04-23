@@ -25,5 +25,4 @@ Node JS port: 5001
 Video showing the behavior of the project:
 https://youtu.be/FsfKSdBTF3Q
 
-Screenshot
 ![image](https://user-images.githubusercontent.com/26890965/164873979-feed6b67-b546-4925-acbf-4b7f92179d1e.png)
