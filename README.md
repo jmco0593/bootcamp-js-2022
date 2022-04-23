@@ -19,5 +19,11 @@ How I described before, the proyect folder contains 3 differents ways that the p
 The name of the folder that this is contained is: react-nodejs. The project contains 2 folders, cliente and servidor, each one cotaoins the related files for client (React) and server(NodeJS) parts of the proyect. Both parts can be started with the command:
 
 npm start
+React's port: 3000
+Node JS port: 5001
 
+Video showing the behavior of the project:
+https://youtu.be/FsfKSdBTF3Q
 
+Screenshot
+![image](https://user-images.githubusercontent.com/26890965/164873979-feed6b67-b546-4925-acbf-4b7f92179d1e.png)
